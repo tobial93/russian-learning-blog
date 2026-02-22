@@ -3,37 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Russisch lernen - Der ultimative Guide</title>
+    <title>Russisch Meistern - Dein Guide zum Russisch lernen</title>
+    <meta name="description" content="Ehrliche Erfahrungsberichte, Tipps und Empfehlungen um Russisch zu lernen.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
-            line-height: 1.7;
+        :root {
+            --rot: #c0392b;
+            --dunkel: #1a1a2e;
+            --text: #2d2d2d;
+            --grau: #f5f5f0;
+            --grau-mittel: #e0e0d8;
         }
-        h1, h2 { color: #2c3e50; }
-        .artikel { border-bottom: 1px solid #eee; padding: 20px 0; }
-        a { color: #2980b9; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text);
+            background: #fafaf8;
+        }
+
+        /* Header */
+        header {
+            background: var(--dunkel);
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--rot);
+        }
+
+        nav {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 22px;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--rot); }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: white; }
+
+        /* Hero */
+        .hero {
+            background: var(--dunkel);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: 'Я';
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 400px;
+            color: rgba(255,255,255,0.03);
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .hero h1 span { color: var(--rot); }
+
+        .hero p {
+            color: #aaa;
+            font-size: 18px;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .hero-cta {
+            background: var(--rot);
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: background 0.2s;
+            position: relative;
+        }
+
+        .hero-cta:hover { background: #a93226; }
+
+        /* Artikel Grid */
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--rot);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--grau-mittel);
+        }
+
+        .artikel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .artikel-karte {
+            background: white;
+            border: 1px solid var(--grau-mittel);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .artikel-karte:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .karte-bild {
+            background: var(--dunkel);
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: rgba(255,255,255,0.15);
+        }
+
+        .karte-inhalt { padding: 20px; }
+
+        .karte-kategorie {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--rot);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .karte-inhalt h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .karte-inhalt h2 a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .karte-inhalt h2 a:hover { color: var(--rot); }
+
+        .karte-inhalt p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .karte-link {
+            font-size: 13px;
+            color: var(--rot);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .karte-link:hover { text-decoration: underline; }
+
+        /* Banner */
+        .kurs-banner {
+            background: var(--dunkel);
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            border-left: 4px solid var(--rot);
+        }
+
+        .kurs-banner h3 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .kurs-banner p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .kurs-banner a {
+            background: var(--rot);
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+
+        .kurs-banner a:hover { background: #a93226; }
+
+        /* Footer */
+        footer {
+            background: var(--dunkel);
+            color: #666;
+            text-align: center;
+            padding: 30px;
+            font-size: 13px;
+            border-top: 3px solid var(--rot);
+        }
+
+        footer a { color: #888; text-decoration: none; }
+        footer a:hover { color: white; }
     </style>
 </head>
 <body>
-    <h1>Russisch lernen - Der ultimative Guide</h1>
-    <p>Alles was du brauchst um Russisch zu lernen - von Anfänger bis Fortgeschrittene.</p>
 
-    <div class="artikel">
-        <h2><a href="russisch-lernen-anfaenger.html">Russisch lernen für Anfänger - mein ehrlicher Erfahrungsbericht</a></h2>
-        <p>Ehrlicher Erfahrungsbericht: Wie ich als Anfänger Russisch gelernt habe.</p>
+<header>
+    <nav>
+        <a href="index.html" class="logo">Russisch<span>Meistern</span></a>
+        <a href="#artikel">Artikel</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Russisch lernen<br><span>- der ehrliche Guide</span></h1>
+    <p>Keine Werbung, keine leeren Versprechen. Nur was wirklich funktioniert.</p>
+    <a href="#artikel" class="hero-cta">Artikel lesen</a>
+</div>
+
+<main id="artikel">
+    <div class="section-title">Neueste Artikel</div>
+
+    <div class="artikel-grid">
+
+        <div class="artikel-karte">
+            <div class="karte-bild">А</div>
+            <div class="karte-inhalt">
+                <div class="karte-kategorie">Erfahrungsbericht</div>
+                <h2><a href="russisch-lernen-anfaenger.html">Russisch lernen für Anfänger - mein ehrlicher Erfahrungsbericht</a></h2>
+                <p>Was wirklich funktioniert hat und was nicht - nach Monaten des Ausprobierens.</p>
+                <a href="russisch-lernen-anfaenger.html" class="karte-link">Artikel lesen</a>
+            </div>
+        </div>
+
+        <div class="artikel-karte">
+            <div class="karte-bild">?</div>
+            <div class="karte-inhalt">
+                <div class="karte-kategorie">Vergleich</div>
+                <h2><a href="russisch-lernen-app-vergleich.html">Russisch lernen App Vergleich - Duolingo vs Babbel vs Sprachenlernen24</a></h2>
+                <p>Welche App lohnt sich wirklich? Ein ehrlicher Vergleich nach eigener Erfahrung.</p>
+                <a href="russisch-lernen-app-vergleich.html" class="karte-link">Artikel lesen</a>
+            </div>
+        </div>
+
     </div>
 
-    <div class="artikel">
-        <h2><a href="russisch-lernen-app-vergleich.html">Russisch lernen App Vergleich - Duolingo vs Babbel vs Sprachenlernen24</a></h2>
-        <p>Welche App ist die beste um Russisch zu lernen? Ein ehrlicher Vergleich.</p>
+    <div class="kurs-banner">
+        <h3>Der Kurs der mir wirklich geholfen hat</h3>
+        <p>14 Minuten täglich - und nach einem Jahr fliessend Russisch sprechen.</p>
+        <a href="https://www.sprachenlernen24-onlinekurs.de/?a=86132708&b=ru7_6342653910&c=30628043285&d=&e=243858&f=1&v=1&w=1">Jetzt ansehen</a>
     </div>
 
-    <div class="artikel">
-        <p>Weitere Artikel folgen jeden Sonntag...</p>
-    </div>
+</main>
+
+<footer>
+    <p>RussischMeistern.de - Affiliate-Hinweis: Diese Seite enthält Affiliate-Links. Bei einem Kauf erhalte ich eine kleine Provision - für dich ohne Mehrkosten.</p>
+</footer>
+
 </body>
 </html>
